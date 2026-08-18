@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://hu3pdqgmpenw"]
+
+[ext_resource type="Script" uid="uid://byk4lbfi7ymlk" path="res://Scripts/Player/Normal/player.gd" id="1_d68yx"]
+[ext_resource type="Texture2D" uid="uid://bex40oyk85foh" path="res://Arte/Player/Normal/Flotar1.png" id="1_stn8q"]
+[ext_resource type="Texture2D" uid="uid://caoe6mw82qvef" path="res://Arte/Player/Normal/Flotar2.png" id="2_d68yx"]
+[ext_resource type="Texture2D" uid="uid://drrem5tcc60ck" path="res://Arte/Player/Normal/Flotar3.png" id="3_6lbgx"]
+[ext_resource type="Texture2D" uid="uid://b66vopvji0kyp" path="res://Arte/Player/Normal/Flotar4.png" id="4_g8p5a"]
+[ext_resource type="Texture2D" uid="uid://dibpi6bna8x2j" path="res://Arte/Player/Normal/Caminar1.png" id="5_sludo"]
+[ext_resource type="Texture2D" uid="uid://dpakaipb8fkah" path="res://Arte/Player/Normal/Caminar2.png" id="6_1qa3x"]
+[ext_resource type="Texture2D" uid="uid://d1bpiacig30an" path="res://Arte/Player/Normal/Caminar3.png" id="7_xqoyb"]
+[ext_resource type="Texture2D" uid="uid://cihs0pbcx072j" path="res://Arte/Player/Normal/Caminar4.png" id="8_q6ow0"]
+[ext_resource type="Texture2D" uid="uid://dghy4vpqv4avv" path="res://Arte/Player/Normal/Caer1.png" id="9_3cbur"]
+[ext_resource type="Texture2D" uid="uid://d4bmwyj6vhe4w" path="res://Arte/Player/Normal/Caer2.png" id="10_g2jcc"]
+[ext_resource type="Texture2D" uid="uid://dkfcye7mn1l3e" path="res://Arte/Player/Normal/Caer3.png" id="11_6h4xa"]
+[ext_resource type="Texture2D" uid="uid://3ty1f1hy3sc7" path="res://Arte/Player/Normal/Caer4.png" id="12_kpges"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aohxf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_stn8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d68yx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6lbgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g8p5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6lbgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d68yx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_stn8q")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4cuc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_sludo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1qa3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xqoyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q6ow0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xqoyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1qa3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sludo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u38lf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_3cbur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_g2jcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6h4xa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kpges")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6h4xa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_g2jcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3cbur")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xd1ap"]
+radius = 16.0
+height = 54.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1434681934]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_d68yx")
+
+[node name="fijo" type="AnimatedSprite2D" parent="." unique_id=1901940331]
+sprite_frames = SubResource("SpriteFrames_aohxf")
+frame_progress = 0.44494468
+
+[node name="Caminar" type="AnimatedSprite2D" parent="." unique_id=1919514954]
+visible = false
+sprite_frames = SubResource("SpriteFrames_c4cuc")
+frame_progress = 0.41218662
+
+[node name="Saltar" type="AnimatedSprite2D" parent="." unique_id=1260009436]
+visible = false
+sprite_frames = SubResource("SpriteFrames_u38lf")
+frame_progress = 0.36250138
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2122017805]
+position = Vector2(4, 1)
+shape = SubResource("CapsuleShape2D_xd1ap")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=211783471]
+zoom = Vector2(1.5, 1.5)
+limit_smoothed = true
+position_smoothing_enabled = true
