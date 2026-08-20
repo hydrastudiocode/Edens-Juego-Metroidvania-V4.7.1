@@ -7,11 +7,18 @@
 [ext_resource type="Texture2D" uid="uid://b66vopvji0kyp" path="res://Arte/Player/Normal/Flotar4.png" id="4_g8p5a"]
 [ext_resource type="Texture2D" uid="uid://dibpi6bna8x2j" path="res://Arte/Player/Normal/Caminar1.png" id="5_sludo"]
 [ext_resource type="Texture2D" uid="uid://dpakaipb8fkah" path="res://Arte/Player/Normal/Caminar2.png" id="6_1qa3x"]
+[ext_resource type="Texture2D" uid="uid://cp58wm2flixie" path="res://Arte/Player/Normal/Flotar5.png" id="6_3cbur"]
+[ext_resource type="Texture2D" uid="uid://c7xf0qfoknbx3" path="res://Arte/Player/Normal/Flotar6.png" id="7_g2jcc"]
 [ext_resource type="Texture2D" uid="uid://d1bpiacig30an" path="res://Arte/Player/Normal/Caminar3.png" id="7_xqoyb"]
+[ext_resource type="Texture2D" uid="uid://ck2luxd5u6agy" path="res://Arte/Player/Normal/Flotar7.png" id="8_6h4xa"]
 [ext_resource type="Texture2D" uid="uid://cihs0pbcx072j" path="res://Arte/Player/Normal/Caminar4.png" id="8_q6ow0"]
 [ext_resource type="Texture2D" uid="uid://dghy4vpqv4avv" path="res://Arte/Player/Normal/Caer1.png" id="9_3cbur"]
+[ext_resource type="Texture2D" uid="uid://o6yipp4uebfp" path="res://Arte/Player/Normal/Flotar8.png" id="9_kpges"]
 [ext_resource type="Texture2D" uid="uid://d4bmwyj6vhe4w" path="res://Arte/Player/Normal/Caer2.png" id="10_g2jcc"]
+[ext_resource type="Texture2D" uid="uid://b38r1njd54v6x" path="res://Arte/Player/Normal/Flotar9.png" id="10_idl88"]
 [ext_resource type="Texture2D" uid="uid://dkfcye7mn1l3e" path="res://Arte/Player/Normal/Caer3.png" id="11_6h4xa"]
+[ext_resource type="Texture2D" uid="uid://bnoj5258w3dp7" path="res://Arte/Player/Normal/Flotar10.png" id="11_o6jr7"]
+[ext_resource type="Texture2D" uid="uid://bmbg8rmptjicg" path="res://Arte/Player/Normal/Flotar11.png" id="12_jrw5n"]
 [ext_resource type="Texture2D" uid="uid://3ty1f1hy3sc7" path="res://Arte/Player/Normal/Caer4.png" id="12_kpges"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aohxf"]
@@ -25,6 +32,51 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_6lbgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g8p5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3cbur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g2jcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6h4xa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kpges")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_idl88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_o6jr7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jrw5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jrw5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_o6jr7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_idl88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kpges")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6h4xa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g2jcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3cbur")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_g8p5a")
@@ -111,7 +163,7 @@ script = ExtResource("1_d68yx")
 
 [node name="fijo" type="AnimatedSprite2D" parent="." unique_id=1901940331]
 sprite_frames = SubResource("SpriteFrames_aohxf")
-frame_progress = 0.44494468
+frame_progress = 0.5404476
 
 [node name="Caminar" type="AnimatedSprite2D" parent="." unique_id=1919514954]
 visible = false
@@ -131,3 +183,6 @@ shape = SubResource("CapsuleShape2D_xd1ap")
 zoom = Vector2(1.5, 1.5)
 limit_smoothed = true
 position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 35.0

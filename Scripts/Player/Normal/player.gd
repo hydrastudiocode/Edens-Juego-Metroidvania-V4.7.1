@@ -74,7 +74,6 @@ func actualizar_animacion() -> void:
 
 
 func intentar_saltar() -> void:
-	"""Intenta realizar un salto o doble salto."""
 	if is_on_floor():
 		pass 
 	elif _doble_salto_cargado:
