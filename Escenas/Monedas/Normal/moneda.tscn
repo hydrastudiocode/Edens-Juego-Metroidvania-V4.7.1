@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://c0yrphesntkk"]
+
+[ext_resource type="Texture2D" uid="uid://btw7qaifvikag" path="res://Arte/Monedas/Normal/Monedas1.png" id="1_5mlu4"]
+[ext_resource type="Script" uid="uid://bpxd5hpdw7mbe" path="res://Scripts/Monedas/Normal/moneda.gd" id="1_u0i71"]
+[ext_resource type="Texture2D" uid="uid://dyvb1ob24ldha" path="res://Arte/Monedas/Normal/Monedas2.png" id="2_u0i71"]
+[ext_resource type="Texture2D" uid="uid://dv8fqa4be2omy" path="res://Arte/Monedas/Normal/Monedas3.png" id="3_oirjh"]
+[ext_resource type="Texture2D" uid="uid://cc84ehys5h6gt" path="res://Arte/Monedas/Normal/Monedas4.png" id="4_ic7t5"]
+[ext_resource type="Texture2D" uid="uid://ix7oy615lyag" path="res://Arte/Monedas/Normal/Monedas5.png" id="5_ymfmk"]
+[ext_resource type="Texture2D" uid="uid://citgghvvlc23g" path="res://Arte/Monedas/Normal/Monedas6.png" id="6_a4vd5"]
+[ext_resource type="Texture2D" uid="uid://o8c81w8kmybh" path="res://Arte/Monedas/Normal/Monedas7.png" id="7_jxv65"]
+[ext_resource type="Texture2D" uid="uid://twfx5vssf30s" path="res://Arte/Tilesets/Luces/brillo3.png" id="9_oirjh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aohxf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5mlu4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_u0i71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oirjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ic7t5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ymfmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a4vd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jxv65")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 19.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c4cuc"]
+radius = 15.033297
+
+[node name="Moneda" type="Area2D" unique_id=1937779241]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_u0i71")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1742033367]
+sprite_frames = SubResource("SpriteFrames_aohxf")
+frame_progress = 0.66703534
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1566976550]
+visible = false
+shape = SubResource("CircleShape2D_c4cuc")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=751579234]
+position = Vector2(-2, 0)
+scale = Vector2(0.41549295, 0.43103448)
+energy = 2.0
+texture = ExtResource("9_oirjh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

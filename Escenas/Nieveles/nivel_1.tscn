@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bs8pmdppkmbj7" path="res://Arte/Tilesets/Decoracion/foco.png" id="8_4cxxx"]
 [ext_resource type="Texture2D" uid="uid://dnxh4hrt2tij3" path="res://Arte/Fondos/bosquenochelargo.png" id="8_e3rhd"]
 [ext_resource type="PackedScene" uid="uid://hu3pdqgmpenw" path="res://Escenas/Player/Normal/player.tscn" id="9_cqc25"]
+[ext_resource type="PackedScene" uid="uid://c0yrphesntkk" path="res://Escenas/Monedas/Normal/moneda.tscn" id="12_7fycn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ogppu"]
 texture = ExtResource("1_i2snb")
@@ -274,3 +275,20 @@ texture = ExtResource("8_e3rhd")
 
 [node name="Player" parent="." unique_id=1434681934 instance=ExtResource("9_cqc25")]
 position = Vector2(148, 484)
+
+[node name="Monedas" type="Node2D" parent="." unique_id=2002474902]
+
+[node name="Moneda" parent="Monedas" unique_id=1937779241 instance=ExtResource("12_7fycn")]
+position = Vector2(320, 304)
+
+[node name="Moneda2" parent="Monedas" unique_id=1577297749 instance=ExtResource("12_7fycn")]
+position = Vector2(95, 336)
+
+[node name="Moneda3" parent="Monedas" unique_id=2143896687 instance=ExtResource("12_7fycn")]
+position = Vector2(281, 509)
+
+[node name="Moneda4" parent="Monedas" unique_id=440660665 instance=ExtResource("12_7fycn")]
+position = Vector2(634, 251)
+
+[node name="Moneda5" parent="Monedas" unique_id=1063413538 instance=ExtResource("12_7fycn")]
+position = Vector2(838, 248)

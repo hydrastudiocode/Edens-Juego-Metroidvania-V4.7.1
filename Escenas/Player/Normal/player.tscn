@@ -157,7 +157,7 @@ animations = [{
 radius = 16.0
 height = 54.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1434681934]
+[node name="Player" type="CharacterBody2D" unique_id=1434681934 groups=["Player"]]
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_d68yx")
 
@@ -181,6 +181,7 @@ shape = SubResource("CapsuleShape2D_xd1ap")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=211783471]
 zoom = Vector2(1.5, 1.5)
+process_callback = 0
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
