@@ -155,7 +155,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xd1ap"]
 radius = 16.0
-height = 54.0
+height = 43.714283
 
 [node name="Player" type="CharacterBody2D" unique_id=1434681934 groups=["Player"]]
 scale = Vector2(0.7, 0.7)
@@ -176,7 +176,7 @@ sprite_frames = SubResource("SpriteFrames_u38lf")
 frame_progress = 0.36250138
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2122017805]
-position = Vector2(4, 1)
+position = Vector2(4.285714, 2.8571427)
 shape = SubResource("CapsuleShape2D_xd1ap")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=211783471]
