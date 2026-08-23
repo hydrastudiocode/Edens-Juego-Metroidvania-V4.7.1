@@ -187,3 +187,5 @@ position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 35.0
+
+[node name="Timer" type="Timer" parent="." unique_id=1779671747]

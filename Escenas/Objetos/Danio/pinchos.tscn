@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b7w4w2xxh1f50"]
+
+[ext_resource type="Script" uid="uid://bfljixj3bxpij" path="res://Escenas/Objetos/Danio/pinchos.gd" id="1_adj3x"]
+[ext_resource type="Texture2D" uid="uid://c7kbp0j5hhu5d" path="res://Arte/Tilesets/Pinchos.png" id="1_tukv8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aohxf"]
+size = Vector2(28, 38)
+
+[node name="Pinchos" type="Area2D" unique_id=1043899989 groups=["pinchos"]]
+script = ExtResource("1_adj3x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=45952846]
+position = Vector2(1, 6)
+shape = SubResource("RectangleShape2D_aohxf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1482605545]
+texture = ExtResource("1_tukv8")

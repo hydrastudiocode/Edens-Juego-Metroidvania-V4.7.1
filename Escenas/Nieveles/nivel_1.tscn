@@ -13,6 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://dnxh4hrt2tij3" path="res://Arte/Fondos/bosquenochelargo.png" id="8_e3rhd"]
 [ext_resource type="PackedScene" uid="uid://hu3pdqgmpenw" path="res://Escenas/Player/Normal/player.tscn" id="9_cqc25"]
 [ext_resource type="PackedScene" uid="uid://c0yrphesntkk" path="res://Escenas/Monedas/Normal/moneda.tscn" id="12_7fycn"]
+[ext_resource type="PackedScene" uid="uid://b7w4w2xxh1f50" path="res://Escenas/Objetos/Danio/pinchos.tscn" id="12_e3rhd"]
+[ext_resource type="Texture2D" uid="uid://b0orfjr0aoro" path="res://Arte/Interfaz Ui/Barra Vida/Barra_Corazones1.png" id="14_4x6ln"]
+[ext_resource type="Script" uid="uid://cuqxaxu5ovy5o" path="res://Scripts/Interfaz/Barras/barra_vida.gd" id="15_ogppu"]
+[ext_resource type="Texture2D" uid="uid://bqcjoxw18hpkd" path="res://Arte/Interfaz Ui/Barra Vida/Barra_Corazones2.png" id="17_ekw45"]
+[ext_resource type="Texture2D" uid="uid://bdxukyidmu763" path="res://Arte/Interfaz Ui/Barra Vida/Barra_Corazones3.png" id="18_tv6vl"]
+[ext_resource type="Texture2D" uid="uid://46jk4i5jh0f8" path="res://Arte/Interfaz Ui/Barra Vida/Barra_Corazones4.png" id="19_saefr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ogppu"]
 texture = ExtResource("1_i2snb")
@@ -335,6 +341,23 @@ scroll_offset = Vector2(321, -43)
 position = Vector2(174, 593)
 texture = ExtResource("8_e3rhd")
 
+[node name="Pinchos" type="Node2D" parent="." unique_id=1553125513]
+
+[node name="Pinchos" parent="Pinchos" unique_id=1043899989 instance=ExtResource("12_e3rhd")]
+position = Vector2(718, 199)
+
+[node name="Pinchos2" parent="Pinchos" unique_id=1292759482 instance=ExtResource("12_e3rhd")]
+position = Vector2(1024, 199)
+
+[node name="Pinchos4" parent="Pinchos" unique_id=312553021 instance=ExtResource("12_e3rhd")]
+position = Vector2(1278, 199)
+
+[node name="Pinchos5" parent="Pinchos" unique_id=1718032239 instance=ExtResource("12_e3rhd")]
+position = Vector2(1212, 455)
+
+[node name="Pinchos3" parent="Pinchos" unique_id=568140833 instance=ExtResource("12_e3rhd")]
+position = Vector2(446, 262)
+
 [node name="Player" parent="." unique_id=1434681934 instance=ExtResource("9_cqc25")]
 position = Vector2(148, 484)
 
@@ -354,3 +377,21 @@ position = Vector2(634, 251)
 
 [node name="Moneda5" parent="Monedas" unique_id=1063413538 instance=ExtResource("12_7fycn")]
 position = Vector2(838, 248)
+
+[node name="Barra_Vida" type="CanvasLayer" parent="." unique_id=1423200591]
+script = ExtResource("15_ogppu")
+textura_3_vidas = ExtResource("14_4x6ln")
+textura_2_vidas = ExtResource("17_ekw45")
+textura_1_vida = ExtResource("18_tv6vl")
+textura_0_vidas = ExtResource("19_saefr")
+
+[node name="Vida" type="TextureRect" parent="Barra_Vida" unique_id=724591625]
+anchors_preset = -1
+anchor_left = 0.094000004
+anchor_top = 0.083000004
+anchor_right = 0.094000004
+anchor_bottom = 0.083000004
+offset_left = -80.288
+offset_top = -27.784004
+offset_right = 79.712
+offset_bottom = 28.215996

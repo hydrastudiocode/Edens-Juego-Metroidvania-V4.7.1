@@ -6,6 +6,10 @@ const ACELERACION = VELOCIDAD_CAMINAR * 6.0
 const VELOCIDAD_SALTO = -725.0
 const VELOCIDAD_MAX_CAIDA = 700
 
+@export var max_vidas: int = 3
+var vidas_actuales: int
+var invulnerable: bool = false
+@export var tiempo_invulnerabilidad: float = 1.5
 @export var sufijo_accion: String = ""
 
 var gravedad: int = ProjectSettings.get(&"physics/2d/default_gravity")
@@ -13,10 +17,23 @@ var gravedad: int = ProjectSettings.get(&"physics/2d/default_gravity")
 @onready var anim_caminar := $Caminar as AnimatedSprite2D
 @onready var anim_fijo := $fijo as AnimatedSprite2D
 @onready var anim_saltar := $Saltar as AnimatedSprite2D
-
+@onready var timer_invulnerable: Timer = $Timer
 var _doble_salto_cargado: bool = false
 var _animacion_actual: String = "fijo"
+signal vidas_cambiadas(nuevas_vidas: int)
+signal jugador_murio()
 
+func _ready():
+	vidas_actuales = max_vidas
+	if timer_invulnerable:
+		timer_invulnerable.timeout.connect(_on_timer_invulnerable_timeout)
+	else:
+		timer_invulnerable = Timer.new()
+		timer_invulnerable.one_shot = true
+		timer_invulnerable.timeout.connect(_on_timer_invulnerable_timeout)
+		add_child(timer_invulnerable)
+	add_to_group("player")
+	vidas_cambiadas.emit(vidas_actuales)
 
 func _physics_process(delta: float) -> void:
 	if is_on_floor():
@@ -40,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	actualizar_animacion()
-
+	_detectar_colisiones_pinchos()
 
 func actualizar_animacion() -> void:
 	var animacion_nueva: String
@@ -55,8 +72,6 @@ func actualizar_animacion() -> void:
 	
 	if animacion_nueva != _animacion_actual:
 		_animacion_actual = animacion_nueva
-		
-		# Ocultar todos
 		anim_caminar.visible = false
 		anim_fijo.visible = false
 		anim_saltar.visible = false
@@ -72,7 +87,6 @@ func actualizar_animacion() -> void:
 				anim_saltar.visible = true
 				anim_saltar.play()
 
-
 func intentar_saltar() -> void:
 	if is_on_floor():
 		pass 
@@ -83,3 +97,47 @@ func intentar_saltar() -> void:
 		return  
 	
 	velocity.y = VELOCIDAD_SALTO
+
+func _detectar_colisiones_pinchos() -> void:
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider and collider.is_in_group("pincho"):
+			recibir_danio()
+			break 
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("pincho"):
+		recibir_danio()
+
+func recibir_danio() -> void:
+	if invulnerable:
+		return
+	
+	vidas_actuales -= 1
+	vidas_cambiadas.emit(vidas_actuales)
+	invulnerable = true
+	if timer_invulnerable:
+		timer_invulnerable.start(tiempo_invulnerabilidad)
+	_efecto_danio()
+	if vidas_actuales <= 0:
+		morir()
+
+func _efecto_danio() -> void:
+	modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	modulate = Color.WHITE
+
+func _on_timer_invulnerable_timeout() -> void:
+	invulnerable = false
+
+func morir() -> void:
+	jugador_murio.emit()
+	_efecto_muerte()
+	await get_tree().create_timer(0.5).timeout
+	get_tree().reload_current_scene()
+
+func _efecto_muerte() -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.3)
+	tween.play()
